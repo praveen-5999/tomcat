@@ -1,0 +1,52 @@
+IQ] How to change port number and why we need to change the port number?
+
+scenario: I need to install tomcat & Jenkins in the same server.
+
+ANS: tomcat port number is 8080 and Jenkins port number also 8080 --> Then we are getting port conflict . [java.net.BindException we will get] , so that we are changing the port numbers.
+
+
+step 1: goto conf directory.
+
+    cd /opt/apache-tomcat-9.0.109/conf
+
+step 2: open server.xml
+   
+    goto line number 71 and change the port.
+
+step 3: stop the tomcat server and start the tomcat server.
+
+step 4: now try to access with different port number.
+
+http://<IP>:<NEW-PORT-NO>
+
+
+NOTE: please make sure to enable the port in Security groups.
+
+
+
+
+
+
+=================================================================
+
+
+
+Now i want to deploy application into tomcat server
+===================================================
+
+step 1:
+-------
+copy war file into your local[Downloads]
+----------------------------------------
+
+cp target/maven-web-application.war /tmp/
+
+scp -i ~/Downloads/shankar-us-east1.pem ec2-user@98.92.223.31:/tmp/maven-web-application.war  /c/Users/gpras/Downloads/maven-web-application.war
+
+step 2: upload war into tomcat server
+------
+
+Access that web application from browser.
+
+
+http://13.233.32.177:9090/maven-web-application
